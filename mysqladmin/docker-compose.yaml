@@ -1,0 +1,17 @@
+version : '3'
+services :
+    phpmyadmin:
+        build: .
+        container_name: mysql-admin
+        ports:
+          - "10000:80"
+        environment:
+          MYSQL_USER: "root"
+          MYSQL_PASSWORD: "root"
+          MYSQL_ROOT_PASSWORD: "liuchengbin"
+          PMA_HOST: db_mysql
+        networks:
+          - mysql_mysql-net
+networks: # 创建网络
+    mysql_mysql-net:
+        external: true 
